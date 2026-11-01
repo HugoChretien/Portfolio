@@ -85,6 +85,8 @@ h1 em, h2 em { color: var(--forest-soft); font-weight: 400; }
 .visual-card { width: min(100%, 620px); overflow: hidden; transform: rotate(1.5deg); background: white; border: 7px solid white; border-radius: var(--radius-md); box-shadow: var(--shadow-high); transition: transform .8s var(--ease-out), box-shadow .8s var(--ease-out); }
 .hero-visual:hover .visual-card { transform: rotate(.4deg) translateY(-6px); box-shadow: 0 42px 110px rgba(12, 42, 31, .24); }
 .visual-card img { width: 100%; aspect-ratio: 1.45 / 1; object-fit: cover; object-position: left center; }
+.visual-card-portrait { width: min(82%, 490px); }
+.visual-card-portrait img { aspect-ratio: 1; object-position: center; }
 .browser-bar { height: 33px; display: flex; align-items: center; gap: 6px; padding: 0 .6rem; color: #879189; font-size: .55rem; }
 .browser-bar i { width: 7px; height: 7px; background: #d6ddd8; border-radius: 50%; }
 .browser-bar span { margin-left: auto; margin-right: auto; }
@@ -109,18 +111,23 @@ h1 em, h2 em { color: var(--forest-soft); font-weight: 400; }
 .proof-statement i { color: var(--lime); font-family: var(--serif); font-weight: 400; }
 
 .section { padding: clamp(5rem, 10vw, 10rem) max(clamp(1.2rem, 7vw, 8rem), calc((100vw - var(--content-max)) / 2 + 4rem)); }
-.section-heading { display: grid; grid-template-columns: 1.3fr 1fr; column-gap: 8vw; align-items: end; margin-bottom: 6rem; }
+.section-heading { display: grid; grid-template-columns: 1.3fr 1fr; column-gap: 8vw; row-gap: 1.5rem; align-items: end; margin-bottom: 6rem; }
 .section-heading .eyebrow { grid-column: 1 / -1; }
-.section-heading > p:last-child { max-width: 470px; margin: 0 0 .5rem; color: var(--muted); font-size: 1.05rem; }
+.section-heading h2 { grid-row: 2 / span 2; align-self: center; }
+.expertise-visual { grid-column: 2; grid-row: 2; margin: 0; overflow: hidden; background: white; border: 6px solid white; border-radius: var(--radius-sm); box-shadow: var(--shadow-low); }
+.expertise-visual img { width: 100%; height: auto; object-fit: contain; }
+.section-heading > p:last-child { grid-column: 2; grid-row: 3; max-width: 470px; margin: 0 0 .5rem; color: var(--muted); font-size: 1.05rem; }
 .expertise-list { border-top: 1px solid var(--line); }
-.expertise-row { display: grid; grid-template-columns: 65px 1fr 1.2fr 55px; align-items: center; gap: 2rem; padding: 2.2rem 0; border-bottom: 1px solid var(--line); transition: padding var(--duration-base) var(--ease-out), background var(--duration-base); }
-.expertise-row:hover { padding-left: 1.2rem; padding-right: 1.2rem; background: rgba(255,255,255,.3); }
+.expertise-row { display: grid; grid-template-columns: 65px 1fr 1.2fr 55px; align-items: center; gap: 2rem; padding: 2.2rem 0; border-bottom: 1px solid var(--line); transition: background var(--duration-base), border-color var(--duration-base); }
+.expertise-row:hover { background: rgba(21,61,46,.055); border-color: rgba(21,61,46,.3); }
 .row-number { color: var(--forest-soft); font-family: var(--serif); font-size: 1.1rem; }
-.expertise-row h3 { margin: 0; font-family: var(--serif); font-size: clamp(2rem, 3vw, 3.2rem); font-weight: 400; }
+.expertise-row h3 { margin: 0; font-family: var(--serif); font-size: clamp(2rem, 3vw, 3.2rem); font-weight: 400; transition: color var(--duration-base); }
+.expertise-row:hover h3 { color: var(--forest-soft); }
 .expertise-row div p { margin: .2rem 0 0; color: var(--forest-soft); font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; }
 .expertise-row > p { margin: 0; color: var(--muted); }
-.row-icon { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid var(--line); border-radius: 50%; font-size: 1.3rem; transition: transform var(--duration-base) var(--ease-out), background var(--duration-base), color var(--duration-base); }
-.expertise-row:hover .row-icon { transform: rotate(12deg); background: var(--forest); color: var(--ivory); }
+.row-icon { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid var(--line); border-radius: 50%; color: var(--forest); transition: background var(--duration-base), color var(--duration-base), border-color var(--duration-base); }
+.row-icon svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.expertise-row:hover .row-icon { background: var(--forest); color: var(--ivory); border-color: var(--forest); }
 
 .projects { background: var(--forest-dark); color: var(--ivory); }
 .projects-intro { display: grid; grid-template-columns: 1.25fr .75fr; align-items: end; gap: 8vw; }
@@ -191,7 +198,7 @@ h1 em, h2 em { color: var(--forest-soft); font-weight: 400; }
 .contact-inner { position: relative; z-index: 2; max-width: 1080px; }
 .contact-inner > p:not(.eyebrow) { max-width: 650px; margin: 2rem 0 0; color: var(--muted); font-size: 1.05rem; }
 .contact-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; margin-top: 2.5rem; }
-.contact-mail { color: var(--forest); font-size: .85rem; border-bottom: 1px solid var(--forest); }
+.contact-detail { color: var(--forest); font-size: .85rem; border-bottom: 1px solid var(--forest); }
 .contact-monogram { position: absolute; right: -1vw; bottom: -12vw; color: rgba(21,61,46,.045); font-family: var(--serif); font-size: 35vw; font-style: italic; line-height: 1; }
 .site-footer { min-height: 110px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: 1.5rem clamp(1.2rem, 4vw, 4.5rem); background: var(--forest-dark); color: var(--ivory); font-size: .72rem; }
 .brand-footer .brand-mark { border-color: rgba(244,240,230,.45); }
@@ -222,6 +229,8 @@ h1 em, h2 em { color: var(--forest-soft); font-weight: 400; }
   .proof-strip { grid-template-columns: repeat(3, 1fr); }
   .proof-statement { grid-column: 1 / -1; }
   .section-heading { grid-template-columns: 1fr; gap: 2rem; }
+  .section-heading h2, .expertise-visual, .section-heading > p:last-child { grid-column: 1; grid-row: auto; }
+  .expertise-visual { width: min(100%, 720px); }
   .expertise-row { grid-template-columns: 50px 1fr 1fr; }
   .row-icon { display: none; }
   .project-card-wide, .project-card-reverse { grid-template-columns: 1fr 1fr; }
