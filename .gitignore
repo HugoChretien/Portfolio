@@ -1,0 +1,8 @@
+source-portfolio.pptx
+source-cv.pdf
+assets/extracted/
+.DS_Store
+Thumbs.db
+.edge-*/
+.chrome-*/
+preview-*.png

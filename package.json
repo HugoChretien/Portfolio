@@ -1,0 +1,10 @@
+{
+  "name": "portfolio-hugo-chretien",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio statique compatible GitHub Pages",
+  "scripts": {
+    "local": "powershell -NoProfile -ExecutionPolicy Bypass -File ./local.ps1",
+    "deploy": "deploy.cmd"
+  }
+}
