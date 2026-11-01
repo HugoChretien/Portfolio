@@ -40,15 +40,23 @@ const projects = {
 const header = document.querySelector('[data-header]');
 const menu = document.querySelector('[data-menu]');
 const menuToggle = document.querySelector('[data-menu-toggle]');
+const menuLabel = menuToggle.querySelector('.sr-only');
+const progress = document.querySelector('[data-scroll-progress]');
 
-const updateHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 24);
-updateHeader();
-window.addEventListener('scroll', updateHeader, { passive: true });
+const updatePageChrome = () => {
+  header.classList.toggle('is-scrolled', window.scrollY > 24);
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const ratio = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
+  progress.style.transform = `scaleX(${ratio})`;
+};
+updatePageChrome();
+window.addEventListener('scroll', updatePageChrome, { passive: true });
 
 menuToggle.addEventListener('click', () => {
   const open = menu.classList.toggle('is-open');
   menuToggle.classList.toggle('is-open', open);
   menuToggle.setAttribute('aria-expanded', String(open));
+  menuLabel.textContent = open ? 'Fermer le menu' : 'Ouvrir le menu';
   document.body.classList.toggle('dialog-open', open);
 });
 
@@ -56,8 +64,27 @@ menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => 
   menu.classList.remove('is-open');
   menuToggle.classList.remove('is-open');
   menuToggle.setAttribute('aria-expanded', 'false');
+  menuLabel.textContent = 'Ouvrir le menu';
   document.body.classList.remove('dialog-open');
 }));
+
+const navLinks = [...document.querySelectorAll('[data-nav-link]')];
+const navSections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+if ('IntersectionObserver' in window) {
+  const navObserver = new IntersectionObserver(entries => {
+    const visible = entries
+      .filter(entry => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!visible) return;
+    navLinks.forEach(link => {
+      const active = link.getAttribute('href') === `#${visible.target.id}`;
+      link.classList.toggle('is-active', active);
+      if (active) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  }, { rootMargin: '-30% 0px -55%', threshold: [0, .2, .5] });
+  navSections.forEach(section => navObserver.observe(section));
+}
 
 const revealItems = document.querySelectorAll('.reveal');
 revealItems.forEach(item => {
@@ -80,8 +107,12 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
 
 document.querySelectorAll('[data-filter]').forEach(button => {
   button.addEventListener('click', () => {
-    document.querySelectorAll('[data-filter]').forEach(item => item.classList.remove('is-active'));
+    document.querySelectorAll('[data-filter]').forEach(item => {
+      item.classList.remove('is-active');
+      item.setAttribute('aria-pressed', 'false');
+    });
     button.classList.add('is-active');
+    button.setAttribute('aria-pressed', 'true');
     const filter = button.dataset.filter;
     document.querySelectorAll('[data-category]').forEach(card => {
       card.hidden = filter !== 'all' && card.dataset.category !== filter;

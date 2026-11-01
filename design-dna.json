@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "name": "Hugo Chretien — Editorial M365",
+    "description": "Un portfolio éditorial technologique, calme et précis, qui associe la crédibilité du conseil à la preuve par le produit.",
+    "source_references": ["index.html", "styles.css", "assets/projects/*.png"],
+    "created_at": "2026-11-01"
+  },
+  "design_system": {
+    "color": {
+      "palette_type": "analogous",
+      "primary": { "hex": "#153d2e", "role": "identité, CTA et sections structurantes" },
+      "secondary": { "hex": "#2f5d48", "role": "titres accentués et métadonnées" },
+      "accent": { "hex": "#d9e7b5", "role": "progression, détail lumineux et emphase" },
+      "neutral": { "scale": ["#fbf8f0", "#f4f0e6", "#b8c9b2", "#667067", "#19231d", "#0c2a1f"], "usage": "Ivoire pour les surfaces, vert-noir pour le texte, sauge et gris-vert pour les niveaux secondaires." },
+      "semantic": { "success": "#64a36f", "warning": "#c78b45", "error": "#b9574f", "info": "#4d7890" },
+      "surface": { "background": "#f4f0e6", "card": "#fbf8f0", "elevated": "#fffdf7" },
+      "contrast_strategy": "Contraste sombre-sur-ivoire dominant, inversé ivoire-sur-forêt pour les sections de preuve."
+    },
+    "typography": {
+      "type_scale": {
+        "display": { "size": "clamp(3.7rem, 6.7vw, 7.4rem)", "weight": "400", "line_height": "0.98", "tracking": "-0.055em" },
+        "heading_1": { "size": "clamp(3.7rem, 6.7vw, 7.4rem)", "weight": "400", "line_height": "0.98", "tracking": "-0.055em" },
+        "heading_2": { "size": "clamp(3rem, 5.4vw, 6rem)", "weight": "400", "line_height": "0.98", "tracking": "-0.055em" },
+        "heading_3": { "size": "clamp(2rem, 3vw, 3.2rem)", "weight": "400", "line_height": "1", "tracking": "-0.04em" },
+        "body": { "size": "1rem", "weight": "400", "line_height": "1.6", "tracking": "0" },
+        "body_small": { "size": "0.85rem", "weight": "400", "line_height": "1.55", "tracking": "0" },
+        "caption": { "size": "0.72rem", "weight": "600", "line_height": "1.5", "tracking": "0.08em" },
+        "overline": { "size": "0.7rem", "weight": "700", "line_height": "1.4", "tracking": "0.16em" }
+      },
+      "font_families": { "heading": "Georgia, 'Times New Roman', serif", "body": "Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", "mono": "ui-monospace, SFMono-Regular, Consolas, monospace" },
+      "font_style_notes": "Serif éditoriale contrastée pour la personnalité, sans-serif système nette pour la lisibilité et la crédibilité produit."
+    },
+    "spacing": { "base_unit": "4px", "scale": ["4px", "8px", "12px", "16px", "24px", "32px", "48px", "64px", "96px", "160px"], "content_density": "spacious", "section_rhythm": "Grandes respirations verticales, resserrées sur mobile, avec groupes internes plus denses." },
+    "layout": { "grid_system": "Grille éditoriale fluide CSS Grid", "max_content_width": "1600px", "columns": "12 implicites, compositions visibles de 2 à 4 colonnes", "gutter": "clamp(1.2rem, 7vw, 8rem)", "breakpoints": ["760px", "1000px"], "alignment_tendency": "asymmetric" },
+    "shape": { "border_radius": { "small": "4px", "medium": "8px", "large": "16px", "pill": "999px" }, "border_usage": "Traits fins structurels et cercles éditoriaux", "divider_style": "1px vert forêt à faible opacité" },
+    "elevation": { "shadow_style": "soft diffused", "levels": { "low": "0 10px 30px rgba(12,42,31,.08)", "medium": "0 26px 70px rgba(12,42,31,.16)", "high": "0 35px 90px rgba(12,42,31,.22)" }, "depth_cues": "Ombres diffuses, superpositions, transparence givrée et contraste de surface." },
+    "iconography": { "style": "Symboles géométriques et flèches diagonales", "stroke_weight": "1px", "size_scale": ["16px", "24px", "48px"], "preferred_set": "Symboles Unicode simples pour éviter une dépendance externe" },
+    "motion": { "easing": "cubic-bezier(.22, 1, .36, 1)", "duration_scale": { "micro": "180ms", "normal": "360ms", "macro": "750ms" }, "entrance_pattern": "fade-up déclenché à l’entrée dans le viewport", "exit_pattern": "disparition immédiate ou glissement du menu", "philosophy": "minimal functional" },
+    "components": { "button_style": "CTA rectangulaires compacts à flèche mobile, primaire forêt et secondaire bordé", "input_style": "Non utilisé", "card_style": "Cartes ivoire à petit rayon, image dominante et élévation au survol", "navigation_pattern": "Barre fixe translucide, soulignement actif et CTA capsule", "modal_style": "Dialogue natif large, média en tête et contenu éditorial", "list_style": "Rangées séparées par filets fins et tags capsules", "component_notes": "Les composants privilégient la preuve, l’alignement et des états interactifs sobres." }
+  },
+  "design_style": {
+    "aesthetic": { "mood": ["calme", "crédible", "précis", "cultivé"], "visual_metaphor": "Un dossier de conseil éditorial qui ouvre sur des produits numériques concrets", "era_influence": "Éditorial contemporain avec retenue moderniste", "genre": "portfolio de conseil technologique éditorial", "personality_traits": ["rigoureux", "accessible", "pragmatique", "soigné"], "adjectives": ["organisé", "profond", "chaleureux", "professionnel"] },
+    "visual_language": { "complexity": "moderate", "ornamentation": "subtle accents", "whitespace_usage": "généreuse et structurante", "visual_weight_distribution": "Titres très présents, preuves chiffrées et captures équilibrées", "focal_strategy": "progressive reveal", "contrast_level": "élevé mais non agressif", "texture_usage": "grille technique et halos très subtils" },
+    "composition": { "hierarchy_method": "scale contrast, typographic hierarchy and spatial isolation", "balance_type": "asymmetric", "flow_direction": "vertical avec alternance clair/sombre", "grouping_strategy": "Sections narratives, filets et cartes de preuve", "negative_space_role": "Installer la confiance, ralentir la lecture et isoler les messages clés" },
+    "imagery": { "photo_treatment": "Aucune photographie", "illustration_style": "Captures d’interfaces métier cadrées comme objets éditoriaux", "graphic_elements": "Cercles, grilles, monogramme, lignes et halos", "pattern_usage": "Grille orthogonale uniquement dans le hero", "image_shape": "Rectangles légèrement arrondis, compositions écran" },
+    "interaction_feel": { "feedback_style": "direct et discret", "hover_behavior": "élévation légère, flèche déplacée et soulignement", "transition_personality": "smooth glide", "loading_style": "Aucun écran de chargement", "microinteraction_density": "modérée" },
+    "brand_voice_in_ui": { "tone": "clair, concret et orienté résultat", "formality": "professionnelle et accessible", "cta_style": "invitation directe", "empty_state_approach": "sobre et explicatif", "error_tone": "factuel et aidant" }
+  },
+  "visual_effects": {
+    "overview": { "effect_intensity": "subtle-accent", "performance_tier": "lightweight", "fallback_strategy": "Désactiver les mouvements et conserver la composition statique avec prefers-reduced-motion", "primary_technology": "CSS + vanilla JS" },
+    "background_effects": { "type": "gradient-animation", "description": "Halo radial statique et grille technique dans le hero", "technology": "CSS", "params": { "color_palette": ["#b8c9b2", "#d9e7b5", "transparent"], "speed": "static", "density": "low", "opacity": "0.32", "blend_mode": "normal" } },
+    "particle_systems": { "enabled": false, "type": "none", "description": "Aucune particule", "technology": "none", "params": { "count": 0, "shape": "none", "size_range": "none", "movement_pattern": "none", "color_behavior": "none", "interaction": "none", "spawn_area": "none" } },
+    "3d_elements": { "enabled": false, "type": "none", "description": "Aucune scène 3D", "technology": "none", "params": { "renderer": "none", "lighting": "none", "camera": "none", "materials": [], "geometry": [], "post_processing": [], "interaction_model": "none" } },
+    "shader_effects": { "enabled": false, "type": "none", "description": "Aucun shader", "technology": "none", "params": { "uniforms": [], "vertex_manipulation": "none", "fragment_output": "none", "noise_type": "none", "distortion": "none" } },
+    "scroll_effects": { "parallax": { "enabled": false, "layers": 0, "depth_range": "none", "speed_curve": "none" }, "scroll_triggered_animations": { "enabled": true, "trigger_points": "12% de visibilité", "animation_type": "fade-up", "scrub_behavior": "triggered once" }, "scroll_morphing": { "enabled": false, "description": "Aucun morphing" } },
+    "text_effects": { "type": "none", "description": "La typographie reste stable et éditoriale", "technology": "CSS", "params": { "split_strategy": "none", "animation_per_unit": "none", "stagger": "none", "effect_style": "none" } },
+    "cursor_effects": { "enabled": false, "type": "none", "description": "Curseur natif", "params": { "shape": "native", "size": "native", "blend_mode": "normal", "trail": "none", "interaction_zone": "none" } },
+    "image_effects": { "type": "parallax-tilt", "description": "Très légère mise à l’échelle et élévation au survol", "technology": "CSS", "params": { "filter_pipeline": "none", "hover_transform": "scale(1.025)", "reveal_animation": "fade-up", "distortion_type": "none" } },
+    "glassmorphism_neumorphism": { "enabled": true, "style": "glass", "params": { "blur_radius": "14px", "transparency": "0.88", "border_treatment": "1px solid rgba(21,61,46,.1)", "shadow_type": "soft diffused", "light_source_angle": "top-left" } },
+    "canvas_drawings": { "enabled": false, "type": "none", "description": "Aucun canvas", "technology": "none", "params": { "draw_method": "none", "animation_loop": "none", "color_scheme": [], "responsiveness": "none", "interaction": "none" } },
+    "svg_animations": { "enabled": false, "type": "none", "description": "Aucune animation SVG", "params": { "animation_method": "none", "path_morphing": "none", "stroke_animation": "none", "filter_effects": "none" } },
+    "composite_notes": "Les effets restent subordonnés au contenu : progression de lecture, révélation douce, profondeur des captures et verre léger. Aucun moteur graphique ni dépendance externe."
+  }
+}

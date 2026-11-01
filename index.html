@@ -11,6 +11,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Aller au contenu</a>
+  <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
 
   <header class="site-header" data-header>
     <a class="brand" href="#top" aria-label="Retour en haut">
@@ -22,9 +23,9 @@
       <span class="sr-only">Ouvrir le menu</span>
     </button>
     <nav id="site-nav" class="site-nav" aria-label="Navigation principale" data-menu>
-      <a href="#expertise">Expertise</a>
-      <a href="#projets">Projets</a>
-      <a href="#parcours">Parcours</a>
+      <a href="#expertise" data-nav-link>Expertise</a>
+      <a href="#projets" data-nav-link>Projets</a>
+      <a href="#parcours" data-nav-link>Parcours</a>
       <a class="nav-cta" href="#contact">Échangeons</a>
     </nav>
   </header>
@@ -106,9 +107,9 @@
       </div>
 
       <div class="project-filters reveal" role="group" aria-label="Filtrer les projets">
-        <button class="filter is-active" type="button" data-filter="all">Tous <span>04</span></button>
-        <button class="filter" type="button" data-filter="power-platform">Power Platform <span>03</span></button>
-        <button class="filter" type="button" data-filter="spfx">SharePoint / SPFx <span>01</span></button>
+        <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">Tous <span>04</span></button>
+        <button class="filter" type="button" data-filter="power-platform" aria-pressed="false">Power Platform <span>03</span></button>
+        <button class="filter" type="button" data-filter="spfx" aria-pressed="false">SharePoint / SPFx <span>01</span></button>
       </div>
 
       <div class="project-grid">
