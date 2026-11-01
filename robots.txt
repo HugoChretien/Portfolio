@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hugochretien.github.io/Portfolio/sitemap.xml
