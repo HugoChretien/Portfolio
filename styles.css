@@ -129,6 +129,44 @@ h1 em, h2 em { color: var(--forest-soft); font-weight: 400; }
 .row-icon svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .expertise-row:hover .row-icon { background: var(--forest); color: var(--ivory); border-color: var(--forest); }
 
+.tools { padding-top: 0; }
+.tools-intro { max-width: 900px; margin: 0 auto; text-align: center; }
+.tools-intro .eyebrow { justify-content: center; }
+.tools-intro h2 { font-size: clamp(2.7rem, 4.3vw, 4.8rem); }
+.tools-intro > p:last-child { max-width: 620px; margin: 2rem auto 0; color: var(--muted); }
+.tools-universe { overflow: clip; max-width: 1000px; min-width: 0; margin: 1rem auto 0; text-align: center; }
+.galaxy { --tool-scale: 0; position: relative; width: 100%; max-width: 880px; aspect-ratio: 1; margin: 0 auto; perspective: 1000px; transform-style: preserve-3d; background: radial-gradient(ellipse at center, rgba(184, 201, 178, .42), rgba(217, 231, 181, .15) 45%, transparent 72%); }
+.galaxy-stars { position: absolute; inset: 0; transform: translateZ(-240px); opacity: .5; background-image: radial-gradient(circle at 14% 24%, var(--forest-soft) 1px, transparent 2px), radial-gradient(circle at 82% 18%, var(--forest-soft) 1px, transparent 2px), radial-gradient(circle at 91% 64%, var(--forest-soft) 1px, transparent 2px), radial-gradient(circle at 24% 83%, var(--forest-soft) 1px, transparent 2px), radial-gradient(circle at 65% 92%, var(--forest-soft) 1px, transparent 2px), radial-gradient(circle at 35% 37%, var(--forest-soft) 1px, transparent 2px); }
+.galaxy-core { position: absolute; inset: 50% auto auto 50%; transform: translate(-50%, -50%) translateZ(0); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .35rem; width: 17%; max-width: 150px; aspect-ratio: 1; border: 1px solid rgba(255, 255, 255, .8); border-radius: 50%; background: radial-gradient(circle at 28% 24%, #fff 0, #f6ffe8 22%, #c3d7a6 54%, #66836a 83%, #284b3b 100%); box-shadow: inset 5px 6px 16px rgba(255, 255, 255, .9), inset -14px -18px 24px rgba(14, 45, 30, .35), 0 0 0 9px rgba(184, 201, 178, .1), 0 0 75px rgba(151, 181, 117, .4), 0 24px 40px rgba(21, 61, 46, .22); }
+.galaxy-core img { width: 43%; height: auto; aspect-ratio: 1; object-fit: contain; filter: drop-shadow(0 4px 3px rgba(17, 38, 30, .25)); }
+.galaxy-core strong { font-size: clamp(.45rem, 1.2vw, .9rem); color: #153d2e; text-shadow: 0 1px 3px rgba(255, 255, 255, .7); }
+.galaxy-core > span { max-width: 80%; color: #294d38; font-size: clamp(.45rem, .9vw, .65rem); line-height: 1.3; }
+/* All intermediate wrappers preserve depth; only the billboard faces the camera. */
+.galaxy-orbit { position: absolute; inset: 0; margin: 0; padding: 0; list-style: none; transform-style: preserve-3d; }
+.galaxy-satellite { position: absolute; inset: 7%; pointer-events: none; transform: rotateZ(var(--axis)) rotateX(var(--tilt)); transform-style: preserve-3d; }
+.galaxy-satellite::before { content: ''; position: absolute; inset: 0; border: 1.5px solid rgba(21, 61, 46, .24); border-radius: 50%; box-shadow: 0 0 8px rgba(184, 201, 178, .2); }
+.galaxy-satellite:nth-child(even)::before { border-color: rgba(21, 61, 46, .16); border-style: dashed; }
+.galaxy-revolution { position: absolute; inset: 0; transform: rotateZ(var(--travel, var(--phase))); transform-style: preserve-3d; }
+.galaxy-position { position: absolute; left: 100%; top: 50%; transform: translate(-50%, -50%); transform-style: preserve-3d; }
+.galaxy-counter { transform: rotateZ(calc(-1 * var(--travel, var(--phase)))); transform-style: preserve-3d; }
+.galaxy-tool { filter: drop-shadow(0 10px 12px rgba(12, 39, 36, .16)); isolation: isolate; display: flex; flex-direction: column; align-items: center; gap: .65rem; width: clamp(82px, 12vw, 116px); transform: rotateX(calc(-1 * var(--tilt))) rotateZ(calc(-1 * var(--axis))) scale(var(--tool-scale)); }
+.galaxy-logo { clip-path: circle(50%); overflow: hidden; position: relative; display: grid; place-items: center; width: clamp(56px, 9vw, 88px); aspect-ratio: 1; border: 1px solid rgba(255, 255, 255, .65); border-radius: 50%; background: radial-gradient(circle at 27% 22%, #fff 0, var(--planet-light) 21%, var(--planet-color) 63%, #122c39 100%); box-shadow: inset 4px 5px 9px rgba(255, 255, 255, .75), inset -9px -12px 17px rgba(5, 21, 35, .5), 0 0 22px color-mix(in srgb, var(--planet-color) 24%, transparent), 0 15px 22px rgba(21, 40, 46, .23); }
+.galaxy-logo::before { content: ''; position: absolute; top: 9%; left: 16%; width: 39%; height: 22%; border-radius: 50%; transform: rotate(-28deg); background: linear-gradient(rgba(255, 255, 255, .75), rgba(255, 255, 255, 0)); pointer-events: none; }
+.galaxy-logo img { position: relative; width: 57%; height: 57%; object-fit: contain; filter: drop-shadow(0 2px 1px rgba(255, 255, 255, .7)) drop-shadow(0 5px 4px rgba(9, 22, 38, .4)); }
+.galaxy-tool > span { padding: .25rem .5rem; border: 1px solid rgba(21, 61, 46, .08); border-radius: var(--radius-pill); background: var(--ivory-light); color: var(--forest); font-size: clamp(.68rem, 1.4vw, .8rem); font-weight: 600; max-width: 100%; line-height: 1.3; overflow-wrap: anywhere; box-shadow: 0 3px 8px rgba(21, 61, 46, .06); }
+.galaxy-toggle { margin-top: 1rem; padding: .65rem 1rem; border: 1px solid var(--line); border-radius: var(--radius-pill); background: transparent; color: var(--forest); font: inherit; font-size: .75rem; cursor: pointer; }
+.galaxy-toggle:hover { background: var(--ivory-light); border-color: var(--forest); }
+.galaxy-legend { display: none; }
+@media (max-width: 600px) {
+  .galaxy-core { gap: .2rem; }
+  .galaxy-core > span { display: none; }
+  .galaxy-tool { width: clamp(56px, 9vw, 88px); gap: 0; }
+  .galaxy-tool > span { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+  .galaxy-legend { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem 1rem; max-width: 340px; margin: 1rem auto 1.5rem; padding: 0; list-style: none; text-align: left; }
+  .galaxy-legend li { display: flex; align-items: center; gap: .5rem; color: var(--forest); font-size: .75rem; }
+  .galaxy-legend li::before { content: ''; flex: 0 0 10px; height: 10px; border-radius: 50%; background: radial-gradient(circle at 30% 25%, #fff, var(--planet-color) 65%, #122c39); box-shadow: 0 2px 4px rgba(21, 61, 46, .15); }
+}
+
 .projects { background: var(--forest-dark); color: var(--ivory); }
 .projects-intro { display: grid; grid-template-columns: 1.25fr .75fr; align-items: end; gap: 8vw; }
 .eyebrow-light { color: var(--sage); }
